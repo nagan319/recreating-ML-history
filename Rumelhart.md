@@ -77,13 +77,13 @@ A = np.array([[1, 2], [3, 4], [5, 6]])
 
 This code block is equivalent to the following matrix:
 
-$$
+```math
 \begin{bmatrix}
 1&2\\
 3&4\\
 5&6
 \end{bmatrix}
-$$
+```
 
 Matrix multiplication can be performed using any of the following functions:
 
@@ -97,7 +97,8 @@ C = np.matmul(A, B)
 ```
 
 This code block is equivalent to the following expression:
-$$
+
+```math
 \begin{bmatrix} 
 1&2&3\\
 1&5&6
@@ -112,7 +113,8 @@ $$
 22&28\\
 46&58
 \end{bmatrix}
-$$
+```
+
 The transpose of a matrix in Numpy can be represented as follows:
 
 ```python
@@ -194,7 +196,7 @@ The product of the matrices is added to a vector of biases and fed through the a
 $$
 A^{(L)}=\sigma(\textbf{W}^{(L-1)}\textbf{A}^{(L-1)}+\textbf{b}^{(L)})
 $$
-$$
+```math
 =\sigma(
 \begin{bmatrix}
 w_{1, 1}&w_{1, 2}&...&w_{1,n}\\
@@ -210,8 +212,8 @@ a_{1}\\a_{2}\\\vdots\\a_{n}
 b_1\\b_2\\\vdots\\b_m
 \end{bmatrix}^{(L)}
 )
-$$
-$$
+```
+```math
 =\sigma{(
 \begin{bmatrix}
 w_{1, 1}a_1+w_{1, 2}a_1+...+w_{1, n}a_1+b_1\\
@@ -220,12 +222,12 @@ w_{2, 1}a_2+w_{2, 2}a_2+...+w_{2, n}a_2+b_2\\
 w_{m, 1}a_m+w_{m, 2}a_m+...+w_{m, n}a_m+b_m\\
 \end{bmatrix}
 )}
-$$
-$$
+```
+```math
 =\begin{bmatrix}
 a_1\\a_2\\\vdots\\a_m
 \end{bmatrix}^{(L)}
-$$
+```
 
 This process is iteratively repeated until the final, output layer is reached.
 
