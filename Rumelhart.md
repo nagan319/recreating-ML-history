@@ -138,11 +138,14 @@ print(reshaped_B)
 
 ## Sigmoid Activation Function
 
-The activation function ensures that all activation values are normalized and within the range 0 and 1. The simplest activation function is the sigmoid function. 
+The activation function ensures that all activation values are normalized and within the range 0 and 1. The simplest activation function is the sigmoid function.
+
 $$
 \sigma(x)=\frac{1}{1+e^{-x}}
 $$
+
 The derivative of the sigmoid function is the following (use the quotient rule, then re-express the function in terms of itself):
+
 $$
 \sigma'(x)=\sigma(x)(1-\sigma(x))
 $$
