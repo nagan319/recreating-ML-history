@@ -44,6 +44,7 @@ B_{[2, 0]}&B_{[2, 1]}\\
 \end{bmatrix}
 =
 $$
+
 $$
 \begin{bmatrix} 
 A_{[0, 0]}B_{[0, 0]]}+A_{[0, 1]}B_{[1, 0]]}+A_{[0, 2]}B_{[2, 0]]}&&A_{[0, 0]}B_{[0, 1]]}+A_{[0, 1]}B_{[1, 1]]}+A_{[0, 2]}B_{[2, 1]}\\
@@ -75,6 +76,7 @@ A = np.array([[1, 2], [3, 4], [5, 6]])
 ```
 
 This code block is equivalent to the following matrix:
+
 $$
 \begin{bmatrix}
 1&2\\
@@ -82,6 +84,7 @@ $$
 5&6
 \end{bmatrix}
 $$
+
 Matrix multiplication can be performed using any of the following functions:
 
 ```python
@@ -160,8 +163,15 @@ Forward propagation is fairly simple.
 The input values can be represented simply as a vector of n input values:
 
 $$
-\textbf{X}=\begin{bmatrix}x_1\\x_2\\...\\x_n\end{bmatrix}
+\textbf{X}=
+\begin{bmatrix}
+x_1\\
+x_2\\
+...\\
+x_n
+\end{bmatrix}
 $$
+
 We'll use A(n) to represent the input vector at the Lth layer of the network. For the zeroth layer, it is simply equal to X:
 $$
 \textbf{A}^{(0)}=\textbf{X}
@@ -193,7 +203,7 @@ w_{2, 1}&w_{2, 2}&...&w_{2,n}\\
 w_{m, 1}&w_{m, 2}&...&w_{m,n}\\
 \end{bmatrix}^{(L-1)}
 \begin{bmatrix}
-a_1\\a_2\\\vdots\\a_n
+a_{1}\\a_{2}\\\vdots\\a_{n}
 \end{bmatrix}^{(L-1)}
 +
 \begin{bmatrix}
