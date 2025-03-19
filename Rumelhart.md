@@ -178,6 +178,7 @@ x_n
 $$
 
 We'll use A(n) to represent the input vector at the Lth layer of the network. For the zeroth layer, it is simply equal to X:
+
 $$
 \textbf{A}^{(0)}=\textbf{X}
 $$
