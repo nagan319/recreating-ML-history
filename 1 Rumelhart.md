@@ -1,14 +1,12 @@
 # Recreating 'Learning Representations by Backpropagation' (Rumelhart et al.)
 
 ## Structure
-- Forward propagation (python)
-- Gradients (math)
 - Backpropagation (math)
 - Backpropagation (python)
 - Complete training
 ## Introduction
 
-Rumelhart et al.'s 'Learning Representations by Backpropagation' introduces the concept of multilayer perceptron networks (MLPs), neural networks that consist of multiple perceptron layers united by weight and bias matrices in addition to activation functions. We will recreate the architecture introduced in Rumelhart et al. using both raw Numpy and more advanced libraries while covering the underlying mathematical concepts along the way.
+Rumelhart et al.'s 'Learning Representations by Backpropagation' introduces the concept of a multilayer perceptron network (MLP), a neural network that consists of multiple perceptron layers united by weight and bias matrices in addition to activation functions. We will recreate the architecture introduced in Rumelhart et al. using both raw Numpy and more advanced libraries while covering the underlying mathematical concepts.
 
 ## Matrix Multiplication - Conceptual
 
@@ -18,7 +16,7 @@ Two matrices A and B can only be multiplied if the number of **rows** in the fir
 
 In standard mathematical notation, the first value in the shape of a matrix indicates the number of columns, while the second indicates the number of rows in the matrix.
 
-The product of two matrices with the indicated shapes *(m, n)* and *(n, p)* will result in a matrix the shape *(m, p)*: 
+The product of two matrices with the indicated shapes *(m, n)* and *(n, p)* will result in a matrix with the shape *(m, p)*: 
 
 $$
 A_{(m,n)}*B_{(n,p)}=C_{(m,p)}
@@ -275,6 +273,56 @@ final_output = input
 print("Final Output:", final_output)
 ```
 
-### Backpropagation - Conceptual
+## Gradients and Backpropagation - Conceptual
 
+In order to understand backpropagation, the process of gradually adjusting weights and biases in order to optimize the behavior of a neural network, we must first understand the mathematical concept of a **gradient**.
+
+Essentially, a gradient is just a vector that contains the partial derivatives of a function with respect to its variables.
+
+For a function *f* that takes a vector input of *n* real numbers and outputs a real number, the gradient is represented as the following:
+
+```math
+\nabla f(\textbf{x})=
+\begin{bmatrix}
+\frac{\delta f}{\delta x_1}\\
+\frac{\delta f}{\delta x_2}\\
+\vdots\\
+\frac{\delta f}{\delta x_n}
+\end{bmatrix}
+```
+
+Here, $\nabla f(\textbf{x})$ denotes the gradient vector while $\frac{\delta f}{\delta x_i}$ denotes the partial derivative with respect to each term.
+
+As another example, for the following function:
+
+$$
+f(x, y)=x^2+y^2
+$$
+
+The gradient is calculated as:
+
+```math
+\nabla f(x, y)=
+\begin{bmatrix}
+\frac{\delta}{\delta x}(x^2 + y^2)\\
+\frac{\delta}{\delta y}(x^2 + y^2)
+\end{bmatrix}
+=
+\begin{bmatrix}
+2x\\
+2y
+\end{bmatrix}
+```
+
+In order to effectively optimize our network, we need to determine a **loss function** that can be minimized in order to receive the best output.
+
+A common loss function, and the one used in Rumelhart et al., is the **Mean Squared Error** function:
+
+```math
+L(\textbf{A}^{(L)}, \textbf{Y})=\frac{1}{2n}\sum_{i=1}^{n}(a_i^{(L)}-y_i)^2
+```
+
+The loss, in this case, is simply a scalar value that represents the sum of the squared differences between the expected output value $\textbf{Y}$ of the network and its actual value $\textbf{A}^{(L)}$ after forward propagation. It is defined for a batch of size *n*, and $\frac{1}{2}$ is used for convenience since it is canceled out during differentiation.
+
+Although the loss is a scalar value, it's still mathematicallly possible to take its gradient with respect to a vector or matrix. 
 
