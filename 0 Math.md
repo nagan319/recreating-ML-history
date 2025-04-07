@@ -293,10 +293,28 @@ $$
 (AB)_{ij}=a_{i1}b_{1j}+a_{i2}b_{2j}+...+a_{ip}b_{pj}
 $$
 
-The **dot product** of a horizontal and vertical vector is a special instance of a resultant that can be found in the following way:
+The **dot product** of a horizontal and vertical vector is a special instance of a resultant that can be found in the following way: 
 
 $$
 \begin{bmatrix}a_1&a_2&...&a_n\end{bmatrix}
 \begin{bmatrix}b_1\\b_2\\\vdots\\b_n\end{bmatrix}=
 a_1b_1+a_2b_2+...+a_nb_n
 $$
+
+#### Derivative of a Matrix (Jacobian Matrix)
+
+The derivative of a scalar function which takes a vector as input and outputs a scalar with respect to the input vector is simply a vector containing the derivatives of each individual item:
+$$
+f:\mathbb{R}^N\rightarrow \mathbb{R}
+$$
+$$
+\frac{\delta f(\textbf{x})}{\delta \textbf{x}}=
+\begin{bmatrix}
+\frac{\delta f(\textbf{x})}{\delta x_1}\\
+\frac{\delta f(\textbf{x})}{\delta x_2}\\
+\vdots\\
+\frac{\delta f(\textbf{x})}{\delta x_N}\\
+\end{bmatrix}
+$$
+
+

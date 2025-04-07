@@ -252,25 +252,17 @@ In Numpy, forward propagation across a 3-layer MLP can be represented as follows
 ```python
 import numpy as np
 
-input_size = 5 
-output_size = 3  
-L = 3
+input = np.random.randn(1, 8)
+w = [np.random.randn(8, 64), np.random.randn(64, 64), np.random.randn(64, 8)]
+b = [np.random.randn(1, 64), np.random.randn(1, 64), np.random.randn(1, 8)]
 
-input = np.random.randn(input_size)
-weights = [np.random.randn(input_size, output_size) for _ in range(L)]
-biases = [np.random.randn(output_size) for _ in range(L)]
+def sigmoid(input: np.ndarray):
+    return 1 / (1 + np.exp(-input))
 
-def sigmoid(x):
-    return 1 / (1 + np.exp(-x))
+for i in range(len(w)):
+    input = sigmoid(np.dot(input, w[i]) + b[i])
 
-for layer in range(L):
-    weighted_sum = np.dot(input, weights[layer]) + biases[layer]  
-    output = sigmoid(weighted_sum)  
-    input = output
-
-final_output = input
-
-print("Final Output:", final_output)
+print(input)
 ```
 
 ## Gradients and Backpropagation - Conceptual
@@ -326,3 +318,4 @@ The loss, in this case, is simply a scalar value that represents the sum of the 
 
 Although the loss is a scalar value, it's still mathematicallly possible to take its gradient with respect to a vector or matrix. 
 
+The gradient with respect to each node in the 
